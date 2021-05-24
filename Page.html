@@ -28,8 +28,21 @@ async function ConvertWord () {
 		console.log(AllConsonants); //Outputs an array of ints
 		let IsItOrdered =  ConsonantsInOrder(AllConsonants); //Returns true or false
 		console.log(IsItOrdered);
+		if(IsItOrdered)
+		{
+			let First = AllConsonants[0];
+			let lastint = AllConsonants.pop();
+			let ConsonantCluster = text.slice(0, lastint + 1); //add + 1 because it will slice off that last character as well, this took me so long to figure out
+			let TheRest = text.slice(lastint + 1 , text.length);
+			let FinalOrderedText = TheRest + ConsonantCluster + "ay"; // pig latin form, FINALLY
+			document.getElementById("Replace").innerHTML = FinalOrderedText;
+		}
+		else //Its not ordered
+		{
+		}
  	}
 }
+
 //Checks if it begins with a consonant
 BeginsWithConsonant = (_String) =>
 {
@@ -146,6 +159,7 @@ BeginsWithConsonant = (_String) =>
  function SearchMoreConsonants (_String, FindAll)
 {
 	let _indexes = [];
+	//console.log("_String length is " + _String.length);
 	for (i = 0; i < _String.length; i++)
 	{
 		let charvar =  BeginsWithConsonant(_String[i]);
@@ -154,7 +168,7 @@ BeginsWithConsonant = (_String) =>
 			if(!FindAll) //if we dont have to find them all
 			{	
 				//console.log("There was no consonant at " + i + "breaking");
-				//break;
+				break;
 			}
 		}
 		if(typeof charvar === "string") // if charvar returns a character, push that int
@@ -171,44 +185,48 @@ ConsonantsInOrder = (Consonants) =>
 	{
 		if(Consonants[1] == true) // if it exists
 		{
+			console.log("Consonants[1] == true");
 			if (Consonants[1] === 1)  // if the number equals its index
 			{
+				console.log("Consonants[1] === 1");
 				if(Consonants[2] == true)// if it exists
 				{
+					console.log("Consonants[2] == true");
 					if(Consonants[2] === 2) // if the number equals its index
 					{
-						console.log("Consonants[2] === 2")
+						console.log("Consonants[2] === 2");
 						return true;
 					}
 					else
 					{
-						console.log("Consonants[2] !== 2")
+						console.log("Consonants[2] !== 2");
 						return false;
 					}
 				}
 				else
 				{
-					console.log("Consonants[2] doesnt exist")
+					console.log("Consonants[2] doesnt exist");
 					return true; //0 and 1 Exist.
 				}
 			}
 			else
 			{
-				console.log("Consonants[1] !== 1")
+				console.log("Consonants[1] !== 1");
 				return false;
 			}
 		}
 		else
 		{
-			console.log("Consonants[1] doesnt exist")
+			console.log("Consonants[1] doesnt exist");
 			return false;
 		}
 	}
 	else {
-		console.log("Consonants[0] !== 0")
+		console.log("Consonants[0] !== 0");
 		return false;
 	}
 }
+
 </script>
 </body>
 </html>
