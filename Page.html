@@ -6,7 +6,8 @@
 <body>
 <input type="text" id="WordBox"> </input>
 <button class="Submit">Submit</button>
-<p id="Replace"></p>
+<p id="Replace">Type a word above and this text will be replaced with the pig latin version of it. Words that have two consonants, like "throw", give different results than words like "pig".
+Words that start with a vowel like "up" also give different results. Press submit when you typed a word. Source: https://en.wikipedia.org/wiki/Pig_Latin</p>
 <script type="text/javascript">
 	//For full rules and examples on the game, https://en.wikipedia.org/wiki/Pig_Latin
 const SubmitBtn = document.querySelector(".Submit");
@@ -19,7 +20,10 @@ async function ConvertWord () {
 	let FirstConsonant = await BeginsWithConsonant(text); //returns false or a letter 
 	if(!FirstConsonant) //if false
 	{
-
+		//It starts with a vowel
+		let CharFirst = text.slice(0, 2);
+		let FinalVowelText = CharFirst + "yay, " + CharFirst + "way, " + CharFirst + "hay";
+		document.getElementById("Replace").innerHTML = FinalVowelText;
 	} 
 	else //Theres a consonant, we have the First Consonant
 	{
@@ -37,8 +41,13 @@ async function ConvertWord () {
 			let FinalOrderedText = TheRest + ConsonantCluster + "ay"; // pig latin form, FINALLY
 			document.getElementById("Replace").innerHTML = FinalOrderedText;
 		}
-		else //Its not ordered
+		else //Its not ordered, theres no Consonant Cluster
 		{
+
+			let firstChar = text.slice(0, 1);
+			let _TheRest = text.slice(1, text.length);
+			let FinalNoClusterText = _TheRest + firstChar + "ay";
+			document.getElementById("Replace").innerHTML = FinalNoClusterText;
 		}
  	}
 }
