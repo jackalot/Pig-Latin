@@ -4,6 +4,139 @@
 	<title>Pig Latin</title>
 </head>
 <body>
+<input type="text" id="WordBox"> </input>
+<button class="Submit">Submit</button>
+<p id="Replace"></p>
+<script type="text/javascript">
+	//For full rules and examples on the game, https://en.wikipedia.org/wiki/Pig_Latin
+const SubmitBtn = document.querySelector(".Submit");
+SubmitBtn.addEventListener("click", () => {
+		ConvertWord();
+})
+async function ConvertWord () {
+	let text = document.getElementById("WordBox").value; 
+	let FirstConsonant = await BeginsWithConsonant(text); //returns false or a letter 
+	if(!FirstConsonant) //if false
+	{
 
+	} 
+	else //Theres a consonant, we have the First Consonant
+	{
+		console.log("my consonant is " + FirstConsonant);
+ 	}
+}
+//Checks if it begins with a consonant
+BeginsWithConsonant = (_String) =>
+{
+	console.log("does it begin with a consonant");
+	lowerString = _String.toLowerCase();
+	let value = "";
+	switch(lowerString[0])
+	{
+		case "b":
+		value = "b";
+		console.log("Found a consonant, its b")
+		return value;
+		break;
+		case "c":
+		value = "c"
+		console.log("Found a consonant, its c")
+		return value;
+		break;
+		case "d":
+		value = "d"
+		console.log("Found a consonant, its d")
+		return value;
+		break;
+		case "f":
+		value = "f"
+		console.log("Found a consonant, its f")
+		return value;
+		break;
+		case "g":
+		value = "g"
+		console.log("Found a consonant, its g")
+		return value;
+		break;
+		case "j":
+		value = "j";
+		console.log("Found a consonant, its j")
+		return value;
+		break;
+		case "k":
+		value = "k";
+		console.log("Found a consonant, its k")
+		return value;
+		break;
+		case "l":
+		value = "l";
+		console.log("Found a consonant, its l")
+		return value;
+		break;
+		case "m":
+		value = "m";
+		console.log("Found a consonant, its m")
+		return value;
+		break;
+		case "n":
+		value = "n"
+		console.log("Found a consonant, its n")
+		return value;
+		break;
+		case "p":
+		value = "p"
+		console.log("Found a consonant, its p")
+		return value;
+		break;
+		case "q":
+		value = "q"
+		console.log("Found a consonant, its q")
+		return value;
+		break;
+		case "s":
+		value = "s"
+		console.log("Found a consonant, its s")
+		return value;
+		break;
+		case "t":
+		value = "t"
+		console.log("Found a consonant, its t")
+		return value;
+		break;
+		case "v":
+		value = "v"
+		console.log("Found a consonant, its v")
+		return value;
+		break;
+		case "x":
+		value = "x"
+		console.log("Found a consonant, its x")
+		return value;
+		break;
+		case "z":
+		value = "z"
+		console.log("Found a consonant, its z")
+		return value;
+		break;
+		case "h":
+		value = "h";
+		console.log("Found a consonant, its h")
+		return value;
+		break;
+		case "r":
+		value = "r";
+		console.log("Found a consonant, its r")
+		return value;
+		break;
+		case "w":
+		value = "w";
+		console.log("Found a consonant, its w")
+		return value;
+		break;
+		default:
+		return false;
+	}
+}
+</script>
 </body>
 </html>
